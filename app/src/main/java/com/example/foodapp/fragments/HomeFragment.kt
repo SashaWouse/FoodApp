@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
                 //checking for data
                 if (response.body() != null) {
                     val randomMeal: Meal = response.body()!!.meals[0] //!! for non-null
-                    //Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
+                    Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
                     // Img
                     Glide.with(this@HomeFragment)
                         .load(randomMeal.strMealThumb)
