@@ -1,6 +1,7 @@
 package com.example.foodapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,8 +35,12 @@ class HomeFragment : Fragment() {
 
             // retrofit is connected to Api
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
+                // information of the random meal
+
+                //checking for data
                 if (response.body() != null) {
-                    val randomMeal: Meal = response.body()!!.meals[0]
+                    val randomMeal: Meal = response.body()!!.meals[0] //!! for non-null
+                    Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
                 }else {
                     return
                 }
@@ -43,7 +48,7 @@ class HomeFragment : Fragment() {
 
             // connection is unsuccessfully
             override fun onFailure(call: Call<MealList>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("HomeFragment", t.message.toString())
             }
         })
     }
