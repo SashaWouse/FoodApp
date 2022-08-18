@@ -6,15 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.Meal
 import com.example.foodapp.data.MealList
+import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeFragment : Fragment() {
+
+    //instance of viewBinding
+    private  lateinit var binding:FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +29,10 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Initialization of binding
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +47,11 @@ class HomeFragment : Fragment() {
                 //checking for data
                 if (response.body() != null) {
                     val randomMeal: Meal = response.body()!!.meals[0] //!! for non-null
-                    Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
+                    //Log.d("TEST", "meal id ${randomMeal.idMeal} name ${randomMeal.strMeal}")
+                    // Img
+                    Glide.with(this@HomeFragment)
+                        .load(randomMeal.strMealThumb)
+                        .into(binding.imgRandomMeal)
                 }else {
                     return
                 }
