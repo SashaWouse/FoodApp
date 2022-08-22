@@ -60,13 +60,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun observerRandomMeal() {
-        homeMVVM.observeRandomMealLiveData().observe(viewLifecycleOwner,
-            { meal ->
-                Glide.with(this@HomeFragment)
-                    .load(meal!!.strMealThumb)
-                    .into(binding.imgRandomMeal)
+        homeMVVM.observeRandomMealLiveData().observe(viewLifecycleOwner
+        ) { meal ->
+            Glide.with(this@HomeFragment)
+                .load(meal!!.strMealThumb)
+                .into(binding.imgRandomMeal)
 
-                this.randomMeal = meal
-            })
+            this.randomMeal = meal
+        }
     }
 }

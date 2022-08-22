@@ -37,6 +37,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_favourites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_favorite"
@@ -71,29 +72,25 @@
                     android:id="@+id/tv_categoryInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:drawableLeft="@drawable/ic_categories"
-                    android:drawablePadding="5dp"
                     android:text="Category : "
                     android:textStyle="bold"
                     android:textColor="@color/gray_o"
-                    android:textSize="14sp"/>
+                    android:fontFamily="@font/myfont"
+                    android:drawableLeft="@drawable/ic_categories"
+                    android:drawableTint="@color/gray_o"
+                    android:layout_weight="1"/>
 
                 <TextView
-                    android:id="@+id/tv_areaInfo"
+                    android:id="@+id/tv_locInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:drawableLeft="@drawable/ic_location"
-                    android:drawablePadding="5dp"
-                    android:text="Area : "
+                    android:text="Location : "
                     android:textStyle="bold"
                     android:textColor="@color/gray_o"
-                    android:textSize="14sp"/>
+                    android:fontFamily="@font/myfont"
+                    android:drawableLeft="@drawable/ic_location"
+                    android:drawableTint="@color/gray_o"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -112,6 +109,7 @@
                 android:textSize="@dimen/_14ssp"/>
 
             <TextView
+                android:id="@+id/tv_istr_steps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/tv_instructions"
@@ -125,11 +123,11 @@
     </androidx.core.widget.NestedScrollView>
 
     <ImageView
-        android:id="@+id/img_insta"
+        android:id="@+id/img_youtube"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="bottom|center"
-        android:src="@drawable/ic_insta"
+        android:src="@drawable/ic_youtube"
         android:layout_marginBottom="@dimen/_10sdp"/>
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
