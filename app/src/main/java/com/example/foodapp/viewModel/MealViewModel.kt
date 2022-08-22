@@ -4,15 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodapp.data.CategoryList
-import com.example.foodapp.data.CategoryMeals
 import com.example.foodapp.data.Meal
 import com.example.foodapp.data.MealList
 import com.example.foodapp.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class MealViewModel():ViewModel() {
     private var mealDetailsLiveData = MutableLiveData<Meal>()

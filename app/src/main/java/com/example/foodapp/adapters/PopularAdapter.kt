@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.foodapp.data.CategoryMeals
+import com.example.foodapp.data.MealsByCategory
 import com.example.foodapp.databinding.PopularItemsBinding
 
 class PopularAdapter(): RecyclerView.Adapter<PopularAdapter.PopularMealViewHolder>() {
-    lateinit var onItemClick:((CategoryMeals) -> Unit)
-    private var mealList = ArrayList<CategoryMeals>()
+    lateinit var onItemClick:((MealsByCategory) -> Unit)
+    private var mealList = ArrayList<MealsByCategory>()
 
-    fun setMeals(mealsList:ArrayList<CategoryMeals>){
+    fun setMeals(mealsList:ArrayList<MealsByCategory>){
         // assign the mealList
         this.mealList = mealsList
         notifyDataSetChanged()

@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodapp.data.CategoryList
-import com.example.foodapp.data.CategoryMeals
+import com.example.foodapp.data.MealByCategoryList
+import com.example.foodapp.data.MealsByCategory
 import com.example.foodapp.data.Meal
 import com.example.foodapp.data.MealList
 import com.example.foodapp.retrofit.RetrofitInstance
@@ -16,7 +16,7 @@ import retrofit2.Response
 class HomeViewModel():ViewModel() {
 
     private var randomMealLiveData = MutableLiveData<Meal>()
-    private var popularItemsLiveData = MutableLiveData<List<CategoryMeals>>()
+    private var popularItemsLiveData = MutableLiveData<List<MealsByCategory>>()
 
     fun getRandomMeal() {
 
@@ -45,8 +45,8 @@ class HomeViewModel():ViewModel() {
     }
 
     fun getPopularItems(){
-        RetrofitInstance.api.getPopularItems("Seafood").enqueue(object : Callback<CategoryList>{
-            override fun onResponse(call: Call<CategoryList>, response: Response<CategoryList>) {
+        RetrofitInstance.api.getPopularItems("Seafood").enqueue(object : Callback<MealByCategoryList>{
+            override fun onResponse(call: Call<MealByCategoryList>, response: Response<MealByCategoryList>) {
                 if(response.body()!=null){
                     popularItemsLiveData.value = response.body()!!.meals
                 }
@@ -55,7 +55,7 @@ class HomeViewModel():ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<CategoryList>, t: Throwable) {
+            override fun onFailure(call: Call<MealByCategoryList>, t: Throwable) {
                 Log.d("MealActivity",t.message.toString())
             }
         })
@@ -65,7 +65,7 @@ class HomeViewModel():ViewModel() {
         return randomMealLiveData
     }
 
-    fun observerPopularItemsLiveData():LiveData<List<CategoryMeals>> {
+    fun observerPopularItemsLiveData():LiveData<List<MealsByCategory>> {
         return popularItemsLiveData
     }
 
