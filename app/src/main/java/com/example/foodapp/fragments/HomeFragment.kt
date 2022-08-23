@@ -2,14 +2,18 @@ package com.example.foodapp.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.activities.MealActivity
+import com.example.foodapp.adapters.CategoriesAdapter
 import com.example.foodapp.adapters.PopularAdapter
 import com.example.foodapp.data.MealsByCategory
 import com.example.foodapp.data.Meal
@@ -22,6 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var homeMVVM:HomeViewModel
     private lateinit var randomMeal: Meal
     private lateinit var popularItemsAdapter:PopularAdapter
+    private lateinit var categoriesAdapter:CategoriesAdapter
 
     companion object {
         const val MEAL_ID = "com.example.foodapp.fragments.idMeal"
@@ -50,6 +55,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preparePopularItemsRecyclerView()
+        prepareCategoriesRecyclerView()
 
         homeMVVM.getRandomMeal()
         observerRandomMeal()
@@ -59,6 +65,22 @@ class HomeFragment : Fragment() {
         observerPopularItemsLiveData()
         onPopularItemClick()
 
+        homeMVVM.getCategories()
+        observerCategoriesLiveData()
+    }
+
+    private fun prepareCategoriesRecyclerView() {
+        categoriesAdapter = CategoriesAdapter()
+        binding.reclViewCategory.apply {
+            layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            adapter = categoriesAdapter
+        }
+    }
+
+    private fun observerCategoriesLiveData() {
+        homeMVVM.observerCategoriesLiveData().observe(viewLifecycleOwner, Observer { categories ->
+            categoriesAdapter.setCategoryList(categories)
+        })
     }
 
     private fun onPopularItemClick() {
@@ -73,7 +95,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun preparePopularItemsRecyclerView() {
-       // TODO !!!
         binding.reclViewMeals.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = popularItemsAdapter
