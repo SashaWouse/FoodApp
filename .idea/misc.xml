@@ -5,12 +5,14 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.13" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.17314814814814813" />
+        <entry key="app/src/main/res/layout/activity_category_meals.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24720153808593748" />
         <entry key="app/src/main/res/layout/activity_meal.xml" value="0.2844635009765626" />
         <entry key="app/src/main/res/layout/category_itrm.xml" value="0.16458333333333333" />
         <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.1490036231884058" />
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.1490036231884058" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/meal_item.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/popular_items.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.23229166666666667" />
       </map>
