@@ -63,7 +63,7 @@ class MealActivity : AppCompatActivity() {
                 // Instructions
                 binding.tvIstrSteps.text = meal.strInstructions
 
-                youTubeLink = meal.strYoutube
+                youTubeLink = meal.strYoutube.toString()
             }
 
         })
