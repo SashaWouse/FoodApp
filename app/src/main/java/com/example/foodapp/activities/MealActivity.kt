@@ -5,15 +5,19 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.Meal
 import com.example.foodapp.databinding.ActivityMealBinding
+import com.example.foodapp.db.MealDataBase
 import com.example.foodapp.fragments.HomeFragment
 import com.example.foodapp.viewModel.HomeViewModel
 import com.example.foodapp.viewModel.MealViewModel
+import com.example.foodapp.viewModel.MealViewModelFactory
 
 class MealActivity : AppCompatActivity() {
 
@@ -30,7 +34,9 @@ class MealActivity : AppCompatActivity() {
         binding = ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mealMVVM = ViewModelProviders.of(this)[MealViewModel::class.java]
+        val mealDataBase = MealDataBase.getInstance(this)
+        val viewModelFactory = MealViewModelFactory(mealDataBase)
+        mealMVVM = ViewModelProvider(this, viewModelFactory)[MealViewModel::class.java]
 
         getMealInformationFromIntent()
         setInformationInViews()
@@ -40,6 +46,16 @@ class MealActivity : AppCompatActivity() {
         observerMealDetailsLiveData()
 
         onYouTubeImgClick()
+        onFavouriteClick()
+    }
+
+    private fun onFavouriteClick() {
+        binding.btnFavourites.setOnClickListener{
+            mealToSave?.let{
+                mealMVVM.insertMeal(it)
+                Toast.makeText(this,"Meal saved",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     // redirection to YouTube
@@ -50,11 +66,13 @@ class MealActivity : AppCompatActivity() {
         }
     }
 
+    private var mealToSave:Meal?=null
     private fun observerMealDetailsLiveData() {
         mealMVVM.observerMealDetailsLiveData().observe(this,object : Observer<Meal>{
             override fun onChanged(t: Meal?) {
                 onResponseCase()
                 val meal = t
+                mealToSave = meal
 
                 // Category info
                 binding.tvCategoryInfo.text = "Catrgory : ${meal!!.strCategory}"
