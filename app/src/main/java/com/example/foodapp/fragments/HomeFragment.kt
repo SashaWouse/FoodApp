@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.activities.CategoryMealsActivity
+import com.example.foodapp.activities.MainActivity
 import com.example.foodapp.activities.MealActivity
 import com.example.foodapp.adapters.CategoriesAdapter
 import com.example.foodapp.adapters.PopularAdapter
@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeMVVM = ViewModelProviders.of(this)[HomeViewModel::class.java]
+        homeMVVM = (activity as MainActivity).viewModel
 
         popularItemsAdapter = PopularAdapter()
     }

@@ -34,10 +34,6 @@ class MealViewModel(val mealDataBase:MealDataBase):ViewModel() {
         })
     }
 
-    fun observerMealDetailsLiveData():LiveData<Meal> {
-        return mealDetailsLiveData
-    }
-
     // add favourite meal
     fun insertMeal(meal:Meal){
         viewModelScope.launch {
@@ -45,11 +41,8 @@ class MealViewModel(val mealDataBase:MealDataBase):ViewModel() {
         }
     }
 
-    // delete favourite meal
-    fun deleteMeal(meal:Meal){
-        viewModelScope.launch {
-            mealDataBase.mealDao().delete(meal)
-        }
+    fun observerMealDetailsLiveData():LiveData<Meal> {
+        return mealDetailsLiveData
     }
 
 }
