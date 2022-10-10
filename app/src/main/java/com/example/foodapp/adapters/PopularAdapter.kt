@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.foodapp.data.Meal
 import com.example.foodapp.data.MealsByCategory
 import com.example.foodapp.databinding.PopularItemsBinding
 
 class PopularAdapter(): RecyclerView.Adapter<PopularAdapter.PopularMealViewHolder>() {
     lateinit var onItemClick:((MealsByCategory) -> Unit)
+    var onLongItemClick:((MealsByCategory) -> Unit)? = null
     private var mealList = ArrayList<MealsByCategory>()
 
     fun setMeals(mealsList:ArrayList<MealsByCategory>){
@@ -28,6 +30,11 @@ class PopularAdapter(): RecyclerView.Adapter<PopularAdapter.PopularMealViewHolde
 
         holder.itemView.setOnClickListener {
             onItemClick.invoke(mealList[position])
+        }
+
+        holder.itemView.setOnClickListener {
+            onLongItemClick?.invoke(mealList[position])
+            true
         }
     }
 

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.13" />
+        <entry key="app/src/main/res/drawable/rounded_top_shape.xml" value="0.12" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.17314814814814813" />
         <entry key="app/src/main/res/layout/activity_category_meals.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24720153808593748" />
