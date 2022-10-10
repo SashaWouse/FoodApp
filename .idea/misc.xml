@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.13" />
         <entry key="app/src/main/res/drawable/rounded_top_shape.xml" value="0.12" />
+        <entry key="app/src/main/res/drawable/search_bar_bg.xml" value="0.12" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.17314814814814813" />
         <entry key="app/src/main/res/layout/activity_category_meals.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24720153808593748" />
@@ -14,6 +15,7 @@
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.1490036231884058" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1625" />
         <entry key="app/src/main/res/layout/fragment_meal_bottom_sheet.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/meal_item.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/popular_items.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.23229166666666667" />

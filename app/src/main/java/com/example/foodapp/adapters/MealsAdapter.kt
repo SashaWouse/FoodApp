@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.data.Meal
-import com.example.foodapp.databinding.FragmentFavouritesBinding
 import com.example.foodapp.databinding.MealItemBinding
 
-class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.FavouritesAdapterViewHolder>() {
+class MealsAdapter : RecyclerView.Adapter<MealsAdapter.FavouritesAdapterViewHolder>() {
     inner class FavouritesAdapterViewHolder(val binding: MealItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val diffUtil = object : DiffUtil.ItemCallback<Meal>(){
