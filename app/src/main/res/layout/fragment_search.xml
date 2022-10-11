@@ -19,7 +19,7 @@
         android:layout_margin="5dp">
 
         <EditText
-            android:id="@+id/searc_box_id"
+            android:id="@+id/search_box"
             android:layout_width="0dp"
             android:layout_height="@dimen/_45sdp"
             android:layout_weight="1"
@@ -29,6 +29,7 @@
             android:hint="Search meals..."/>
 
         <ImageView
+            android:id="@+id/img_search_arrow"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:src="@drawable/ic_arrow"
