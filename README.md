@@ -1,5 +1,8 @@
 # FoodApp
-Food application
+
+### Food application
+![render](https://github.com/SashaWouse/FoodApp/blob/main/food_app.png?raw=true)
+
 
 ### Main Features
 1. Kotlin
